@@ -29,6 +29,8 @@ typedef NS_ENUM(NSInteger,  JMMediaPresentationStyle) {
 
 
 @protocol JMMediaPickerManagerDelegate <NSObject>
+- (void)imagePickerControllerWillAppear;
+- (void)imagePickerControllerWillDisappear;
 - (void)imagePickerControllerDidFinishPickingMediaWithInfo:(NSDictionary *)info;
 @optional
 - (void)customPresentImagePicker:(UIViewController *)controller;

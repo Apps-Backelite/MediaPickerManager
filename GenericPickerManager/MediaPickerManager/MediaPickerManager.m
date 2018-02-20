@@ -172,6 +172,8 @@
 
 -(void)presentImagePicker
 {
+    [self.delegate imagePickerControllerWillAppear];
+    
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         if (self.presentationStyle == JMMediaPresentationStylePresentModal) {
             [self.delegate presentViewController:self.imagePickerController  animated:YES completion:nil];
@@ -210,6 +212,7 @@
         [self.popoverController dismissPopoverAnimated:YES];
     }
     
+    [self.delegate imagePickerControllerWillDisappear];
     [self.delegate imagePickerControllerDidFinishPickingMediaWithInfo:info];
 }
 
@@ -231,6 +234,7 @@
     else {
         [self.popoverController dismissPopoverAnimated:YES];
     }
+    [self.delegate imagePickerControllerWillDisappear];
 }
 
 
